@@ -71,3 +71,6 @@ body {
   height: 21px;
 }
 
+.tx-filter-product{
+  display: flex !important;
+}

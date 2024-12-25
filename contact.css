@@ -10,6 +10,7 @@
   border: solid 1px gray;
 }
 .input-styles-matn {
+  position: relative;
   display: flex;
   width: 568px;
   height: 200px;
@@ -18,14 +19,14 @@
 }
 @media only screen and (max-width: 600px) {
   .input-styles{
-    width: 350px;
+    width: 310px;
   }
   .input-styles-matn{
-    width: 350px;
+    width: 310px;
   }
 }
 .input-styles-matn::placeholder {
-  position: fixed;
+  position: absolute;
   top: 4px;
   right: 4px;
 }
