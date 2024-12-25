@@ -1,0 +1,42 @@
+.section1-shop {
+  margin-top: 13%;
+  direction: rtl;
+}
+.titr-section3-sabad{
+    font-size: 140%;
+    color: #5e0a8e;
+}
+@media only screen and (max-width: 600px) {
+  .section1-shop {
+    margin-top: 3%;
+  }
+  .titr-section3-sabad{
+    font-size: 100%;
+  }
+}
+.tx-sabad {
+  font-size: 150%;
+  color: #5e0a8e;
+  border-bottom: solid 1px black;
+}
+.format-shop {
+  direction: rtl;
+}
+.box-kharid{
+    border: solid 1px #62666D;
+    border-radius: 10px;
+}
+.tozih-sabad{
+    direction: rtl;
+}
+.tx-tozih-sabad{
+    font-size: 70%;
+    color: #62666D;
+}
+.titr-sabad{
+    font-size: 140%;
+}
+.section-sabad{
+    border: solid 1px #62666D;
+    border-radius: 10px;
+}

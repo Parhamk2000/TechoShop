@@ -1,0 +1,52 @@
+.sec-vijegi {
+  border: solid 1px gray;
+  border-radius: 10px;
+}
+.sec-vijegi div {
+  border-bottom: dashed 1px #945cb4;
+  padding: 5px;
+}
+.intro {
+  border-right: solid 1px gray;
+}
+.button-1-sabad {
+  background-color: #5e0a8e;
+  color: white;
+  padding: 8px 30px;
+  border-radius: 8px;
+}
+
+.button-2-compare {
+  background-color: #fafafa;
+  color: black;
+  padding: 16px;
+  border-radius: 8px;
+}
+@media only screen and (max-width: 800px) {
+  .sec-dastebandi {
+    font-size: 8px;
+  }
+  .intro {
+    border-right: none;
+  }
+  .button-1-sabad {
+    font-size: 10px;
+  }
+}
+.tozih-detail div{
+    background-color: #fafafa;
+}
+
+.jadidtarin{
+    color: #5e0a8e;
+    border-bottom: solid 1px #5e0a8e;
+}
+.button-nazar{
+    background-color: #5e0a8e;
+    color: white;
+    padding: 24px 16px;
+    border-radius: 8px;
+}
+.borders-moshabeh{
+  border-left: solid 2px gainsboro;
+}

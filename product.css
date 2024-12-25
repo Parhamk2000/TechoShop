@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+@font-face {
+  font-family: dana;
+  src: url(font/fonts/Dana/woff2/DanaFaNum-Medium.woff2);
+}
+@font-face {
+  font-family: yekan-bakh-bold;
+  src: url(font/YekanBakh-Bold.ttf);
+}
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+button {
+  text-decoration: none !important;
+  border: none !important;
+}
+body {
+  margin-top: 10%;
+  background-color: #ffffff;
+  font-family: dana !important;
+}
+
+.sec-dastebandi {
+  direction: rtl;
+}
+.sec-dastebandi span {
+  color: #606060;
+}
+.items-filter img {
+  width: 30px;
+  height: 30px;
+}
+.items-asli-filter{
+    border-bottom: solid 3px #0C68F4;
+}
+.table-filter{
+  border: solid 1px gray;
+  height: 330px;
+}
+.button-product{
+  background-color: #5E0A8E;
+  color: white !important;
+  border-radius: 4px;
+  padding: 10px;
+
+}
+.items-m-filter{
+  border: solid 1px gray;
+  border-radius: 80px;
+}
+@media only screen and (max-width: 800px) {
+  .products-cards .cards{
+    border-bottom: 1px solid gray;
+  }
+}
+.tag-takhfif{
+  border-radius: 8px;
+  padding: 2px 8px;
+  color: white;
+  height: 21px;
+}
+

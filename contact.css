@@ -1,0 +1,45 @@
+.tx-contact {
+  font-size: 200%;
+  color: #5e0a8e;
+}
+.input-styles {
+  display: flex;
+  width: 568px;
+  height: 50px;
+  border-radius: 10px;
+  border: solid 1px gray;
+}
+.input-styles-matn {
+  display: flex;
+  width: 568px;
+  height: 200px;
+  border-radius: 10px;
+  border: solid 1px gray;
+}
+@media only screen and (max-width: 600px) {
+  .input-styles{
+    width: 350px;
+  }
+  .input-styles-matn{
+    width: 350px;
+  }
+}
+.input-styles-matn::placeholder {
+  position: fixed;
+  top: 4px;
+  right: 4px;
+}
+.button-contact {
+  background-color: #5e0a8e;
+  color: white !important;
+  padding: 15px;
+  border-radius: 10px;
+}
+.tx2-contact {
+  font-size: 150%;
+  color: #5e0a8e;
+}
+.section-badane {
+  border: solid 1px #606060;
+  border-radius: 10px;
+}

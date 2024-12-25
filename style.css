@@ -1,0 +1,460 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+@font-face {
+  font-family: dana;
+  src: url(font/fonts/Dana/woff2/DanaFaNum-Medium.woff2);
+}
+@font-face {
+  font-family: yekan-bakh-bold;
+  src: url(font/YekanBakh-Bold.ttf);
+}
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+button {
+  text-decoration: none !important;
+  border: none !important;
+}
+body {
+  background-color: #ffffff;
+  font-family: dana !important;
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #d1e5ff;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#642bff, #ff22e6);
+  border-radius: 10px;
+}
+
+.sub-menu {
+  direction: rtl;
+  position: absolute;
+  top: 0px;
+  left: -728px;
+  padding: 10px;
+  border-right: solid 1px #929292;
+  gap: 42.5px;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: 1s;
+  transition-delay: 75ms;
+}
+#mobile-sub:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+}
+#daste-menu {
+  border: none !important;
+  border-radius: 0px !important;
+}
+#sabad-menu {
+  border: solid 1px gray;
+  border-radius: 10px;
+}
+#sabad-tx span {
+  color: #606060;
+}
+
+.header-mobile {
+  border-bottom: solid 1px #adadad;
+}
+/* ----------------------- header ----------------------- */
+header {
+  border-bottom: solid 1px black;
+  position: fixed;
+  top: 0px;
+
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+}
+/* ----------------------- search box customise ----------------------- */
+.input-icons {
+  width: 60%;
+  height: 48px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.icon {
+  padding: 15px;
+  color: #5e0a8e;
+  min-width: 30px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 5px;
+  direction: rtl;
+  border-radius: 10px;
+  border: solid 1px #5e0a8e;
+}
+/* ----------------------- login box customise ----------------------- */
+.login {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.nav-menu {
+  margin-left: 2%;
+}
+
+/* ----------------------- input login customise ----------------------- */
+.input-field-m {
+  background-color: #f6f6f6;
+  border: none;
+  height: 72px;
+  width: 392px;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.input-icons-m {
+  margin-bottom: 10px;
+  display: flex;
+}
+.input-icons-m i {
+  position: absolute;
+  right: 60px;
+  top: 205px;
+}
+.icon-m {
+  padding: 15px;
+  color: black;
+  min-width: 30px;
+  font-size: 20px;
+}
+/* ----------------------- login modal button customise ----------------------- */
+#button-login {
+  background-color: #5e0a8e;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 16px;
+  width: 394px;
+  height: 72px;
+  justify-content: space-around;
+  display: flex;
+  margin-left: 52px;
+}
+/* ----------------------- section1  ----------------------- */
+.section1 {
+  margin-top: 10%;
+  width: 100%;
+  display: block;
+  font-size: 12px;
+}
+
+.pic1 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.pic2 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.pic3 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.button-1 {
+  width: 20%;
+  height: 8%;
+  position: absolute;
+  top: 65%;
+  right: 7%;
+  background-color: white;
+  color: #5e0a8e;
+  border-radius: 8px;
+  padding: 1px;
+}
+.button-1 svg {
+  width: 15px;
+  height: 15px;
+}
+.tx1 {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  color: white;
+  font-size: 180%;
+}
+.tx2 {
+  position: absolute;
+  font-size: 180%;
+  top: 35%;
+  right: 5%;
+  color: white;
+  font-weight: bold;
+}
+.tx3 {
+  position: absolute;
+  top: 55%;
+  right: 5%;
+  color: #77a9ff;
+  font-size: 100%;
+}
+.button-2 {
+  width: 30%;
+  height: 10%;
+  position: absolute;
+  top: 68%;
+  right: 6%;
+  background-color: white;
+  color: #003897;
+  border-radius: 8px;
+  padding: 1px;
+}
+.button-2 svg {
+  width: 15px;
+  height: 15px;
+}
+.tx4 {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  color: white;
+  font-size: 180%;
+  font-weight: bold;
+  direction: rtl;
+}
+.tx5 {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  font-size: 120%;
+  direction: rtl;
+  color: white;
+}
+.button-3 {
+  width: 30%;
+  height: 10%;
+  position: absolute;
+  top: 72%;
+  right: 6%;
+  background-color: white;
+  color: #98019c;
+  border-radius: 8px;
+  padding: 1px;
+}
+.button-3 svg {
+  width: 15px;
+  height: 15px;
+}
+@media only screen and (max-width: 1250px) {
+    .section1 {
+      margin-top: 15%;
+    }
+}
+@media only screen and (max-width: 800px) {
+  .section1 {
+    font-size: 5px;
+    margin-top: 20%;
+  }
+  .button-1 svg {
+    width: 8px;
+    height: 8px;
+  }
+  .button-2 svg {
+    width: 8px;
+    height: 8px;
+  }
+  .button-3 svg {
+    width: 8px;
+    height: 8px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .section1 {
+    margin-top: 0px;
+  }
+}
+
+/* ----------------------- section2  ----------------------- */
+.section2 {
+  direction: rtl;
+}
+/* ----------------------- section3  ----------------------- */
+.section3 {
+  direction: rtl;
+}
+.takhfif {
+  background-color: #5e0a8e;
+  border-radius: 15px;
+  display: flex;
+}
+.hour-takhfif {
+  width: 100%;
+  height: 60%;
+  background-color: white;
+  border-radius: 15px;
+  color: #5e0a8e;
+  position: relative;
+}
+
+.percent {
+  width: 34px;
+  height: 16px;
+  font-size: 70%;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 20px;
+  justify-items: center;
+  padding-top: 10px;
+}
+.card {
+  border-radius: 30px;
+}
+.price-takhfif {
+  width: 75%;
+  background-color: #5e0a8e;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+  align-items: center;
+}
+.icon-slider {
+  position: absolute;
+  display: flex;
+  background-color: #dfdfdf;
+  width: 56px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2000px;
+  left: 35px;
+  margin-top: 135px;
+  z-index: 1;
+}
+/* ----------------------- section4  ----------------------- */
+.section4 {
+  direction: rtl;
+}
+.card-mahsool {
+  background-color: #fafafa;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+/* ----------------------- section5  ----------------------- */
+.section5 {
+  direction: rtl;
+}
+/* ----------------------- section6  ----------------------- */
+.section6 {
+  direction: rtl;
+}
+/* ----------------------- section7  ----------------------- */
+.section7 {
+  direction: rtl;
+}
+.section7-header {
+  border-bottom: solid 2px #5e0a8e;
+}
+.banner-sec7 {
+  margin-top: 80px;
+}
+.banner-sec7-m {
+  margin-top: 50px;
+}
+.banner-sec7 img {
+  width: 100%;
+}
+.banner-sec7-m img {
+  width: 100%;
+}
+/* ----------------------- section8  ----------------------- */
+.header-sec8 {
+  direction: rtl;
+}
+#accordionExample {
+  direction: rtl;
+}
+/* ----------------------- section9  ----------------------- */
+.section9 {
+  direction: rtl;
+}
+.section9-header {
+  border-bottom: solid 2px #5e0a8e;
+}
+.maqale {
+  border: solid 1px #adadad;
+  border-radius: 10px;
+  border-top: none;
+}
+.maqale img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+/* ----------------------- section10  ----------------------- */
+.section10 {
+  direction: rtl;
+}
+/* ----------------------- section11  ----------------------- */
+.section11 {
+  direction: rtl;
+  background-color: #1f032f;
+  /* height: 250px; */
+}
+.input-email {
+  background-color: #1f032f;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: solid 1px gray;
+  color: white;
+}
+.button-sabt {
+  padding: 8px 16px;
+  color: white;
+  background-color: #5e0a8e;
+  border-radius: 8px;
+}
+/* ----------------------- footer  ----------------------- */
+.footer {
+  direction: rtl;
+  color: #5e0a8e;
+}
+@media only screen and (max-width: 600px) {
+  .last-item {
+    font-size: 8px;
+  }
+}
+/* ----------------------- footer-mobile  ----------------------- */
+.sec-footer-m {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: #ffffff;
+}
+.footer-mobile {
+  direction: rtl;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.icons-mobile-footer img {
+  width: 60px;
+}

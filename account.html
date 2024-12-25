@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="detail-product.css">
+    <link rel="stylesheet" href="account.css">
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- ------------------------ My icons ------------------------ -->
+    <svg class="d-none">
+        <symbol id="shopping-cart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+        </symbol>
+        <symbol id="enter" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+        </symbol>
+        <symbol id="search" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </symbol>
+        <symbol id="chevron-down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </symbol>
+        <symbol id="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+        </symbol>
+        <symbol id="chevron-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </symbol>
+        <symbol id="heart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </symbol>
+        <symbol id="mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+        </symbol>
+
+
+
+
+    </svg>
+    <!-- ------------------------ modal ------------------------ -->
+    <div class="modal fade" id="modal-login" aria-hidden="true" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-around">
+                    <img src="Pic/Group 61493(1).png" alt="">
+                </div>
+                <div class="modal-body d-flex flex-column align-items-center" style="color: #945CB4;">
+                    ورود/ثبت نام
+                </div>
+                <div style="direction: rtl;" class="ms-4">
+                    شماره موبایل خود را وارد کنید
+                </div>
+                <div class="align-items-center d-flex justify-content-around">
+                    <div class="input-icons-m">
+                        <input class="input-field-m" type="text" placeholder="09XXXXXXXXX">
+                        <i class="fa-regular fa-user icon-m"></i>
+                    </div>
+                </div>
+                <div style="direction: rtl;" class="ms-4 mt-2">
+                    <input type="checkbox">
+                    <span>با ورود و ثبت‌نام در سایت، با </span>
+                    <span style="color: #5E0A8E;">قوانین تکنوشاپ</span>
+                    <span>موافقت می کنم.</span>
+                </div>
+                <a href="account.html">
+                    <button id="button-login">
+                        تایید
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------ header ------------------------ -->
+    <header class="d-none d-md-block">
+        <div class="d-flex justify-content-between ps-5 pt-3 pe-5 align-items-center gap-3 gap-xl-0">
+            <div class="d-flex gap-3">
+                <a class="ps-4 pt-1 dropdown-toggle" data-bs-toggle="dropdown" style="border-right:solid 2px #9F9F9F;"
+                    href="">
+                    <svg style="width: 2rem; height: 2rem;">
+                        <use xlink:href="#shopping-cart"></use>
+                    </svg>
+                </a>
+                <div class="dropdown-menu" id="sabad-menu" style="direction: rtl;">
+                    <div class="dropdown-item" style="direction: rtl; color: #404040;">
+                        <span>2 کالا</span>
+                    </div>
+                    <div class="dropdown-item d-flex gap-2">
+                        <div class="d-flex flex-column justify-content-between">
+                            <img src="Pic/sabad-1.png" alt="">
+                            <img src="Pic/count.png" alt="">
+                        </div>
+                        <div class="d-flex flex-column gap-1" id="sabad-tx">
+                            <strong>لپ تاپ 13.3 اینچی اپل<br> مدل MacBook Air MGN63 2020</strong>
+                            <div class="gap-2">
+                                <img src="Pic/Ellipse-gray.png" alt="">
+                                <span>خاکستری</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/truck-icon.png" alt="">
+                                <span>ارسال تکنوشاپ</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/verify-icon.png" alt="">
+                                <span>گارانتی یکساله تکنو</span>
+                            </div>
+                            <div class="gap-2">
+                                <strong>50،500،000</strong>
+                                <span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item d-flex gap-2">
+                        <div class="d-flex flex-column justify-content-between">
+                            <img src="Pic/sabad-2.png" alt="">
+                            <img src="Pic/count.png" alt="">
+                        </div>
+                        <div class="d-flex flex-column gap-1" id="sabad-tx">
+                            <strong>کیف محافظ لپ تاپ 13.3 اینچی اپل<br> به همراه کیف شارژر مجزا</strong>
+                            <div class="gap-2">
+                                <img src="Pic/Ellipse-blue.png" alt="">
+                                <span>آبی</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/truck-icon.png" alt="">
+                                <span>ارسال تکنوشاپ</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/verify-icon.png" alt="">
+                                <span>گارانتی یکساله تکنو</span>
+                            </div>
+                            <div class="gap-2">
+                                <strong>990،000</strong>
+                                <span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item d-flex justify-content-between">
+                        <div class="d-flex flex-column justify-content-between">
+                            <span style="color: #404040;">مبلغ قابل پرداخت</span>
+                            <div class="gap-2">
+                                <strong>51،490،000</strong>
+                                <span>تومان</span>
+                            </div>
+                        </div>
+                        <a href="shopping.html">
+                            <img src="Pic/Button-sabad.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <button style="background-color: #5E0A8E !important; color: white;" class="login" data-bs-toggle="modal"
+                    data-bs-target="#modal-login">
+                    ورود / ثبت نام
+                    <svg style="width: 1.5rem; height: 1.5rem;">
+                        <use xlink:href="#enter"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-icons mt-3">
+                <i class="fa fa-search icon"></i>
+                <input class="input-field" type="text" placeholder="جستجو">
+            </div>
+            <div>
+                <img src="Pic/Group 61493(1).png" alt="Logo">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-5 w-100 mt-2 nav-menu p-2 mb-2">
+            <a href="#">راهنمای خرید</a>
+            <a href="contact.html">تماس با ما</a>
+            <a href="about.html">درباره ما</a>
+            <a href="blog.html">وبلاگ</a>
+            <a href="#" data-bs-toggle="dropdown">
+                <svg style="width: 1rem; height: 1rem;">
+                    <use xlink:href="#chevron-down"></use>
+                </svg>
+                <span>
+                    دسته بندی کالاها
+                </span>
+            </a>
+            <!-- ---------- dropdown-items -------------- -->
+            <div class="dropdown-menu" id="daste-menu">
+                <div id="mobile-sub" class="dropdown-item">
+                    <a href="#">
+                        <span>موبایل</span>
+                        <img src="Pic/mobile-icon.png" alt="">
+                    </a>
+                    <!-- ---------- sub-menu -------------- -->
+                    <div class="sub-menu bg-white d-flex flex-column">
+                        <div class="d-flex gap-1">
+                            <img src="Pic/mobile-icon.png" alt="">
+                            <span>موبایل</span>
+                        </div>
+                        <div class="d-flex gap-1">
+                            <img src="Pic/devices-icon.png" alt="">
+                            <span style="color: #5E0A8E;">لوازم جانبی موبایل</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div><strong>همه محصولات موبایل</strong></div>
+                            <div class="d-flex gap-3">
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-1.png" alt="">
+                                    <span>گلس محافظ و کاور</span>
+                                </div>
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-2.png" alt="">
+                                    <span>شارژر و کابل</span>
+                                </div>
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-3.png" alt="">
+                                    <span>نگهدارنده موبایل</span>
+                                </div>
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-4.png" alt="">
+                                    <span>ساعت هوشمند و ایرپاد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="product.html">
+                    <span>لپتاپ و کامپیوتر</span>
+                    <img src="Pic/monitor-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>تبلت</span>
+                    <img src="Pic/tablet-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>ساعت هوشمند</span>
+                    <img src="Pic/watch-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>دوربین</span>
+                    <img src="Pic/camera-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>محصولات گیمینگ</span>
+                    <img src="Pic/game-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>اینترنت</span>
+                    <img src="Pic/data-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>تجهیزات جانبی</span>
+                    <img src="Pic/devices-icon.png" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- ------------------------ header-mobile ------------------------ -->
+    <div class="d-flex d-md-none flex-column align-content-center align-items-center p-3 header-mobile">
+        <div class="input-icons mt-3 w-100">
+            <i class="fa fa-search icon"></i>
+            <input class="input-field" type="text" placeholder="جستجو">
+        </div>
+        <div class="flex-column d-flex">
+            <img src="Pic/Group 61493(1).png" alt="">
+            <div class="d-flex gap-4">
+                <a href="blog.html">وبلاگ</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html">تماس با ما</a>
+                <a href="#">راهنمای خرید</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- ------------------------ section-dastebandi ------------------------ -->
+    <div class="d-flex align-items-center p-3 sec-dastebandi">
+        <span>خانه</span>
+        <svg style="width: 1rem; height: 1rem; color: #5E0A8E;">
+            <use xlink:href="#chevron-left"></use>
+        </svg>
+        <span>حساب کاربری</span>
+        <svg style="width: 1rem; height: 1rem; color: #5E0A8E;">
+            <use xlink:href="#chevron-left"></use>
+        </svg>
+        <span style="color: #5E0A8E;">اطلاعات فردی</span>
+    </div>
+    <!-- ------------------------ section-main ------------------------ -->
+    <section class="col-12 col-sm-12 col-md-12" style="direction: rtl;">
+        <div class="d-flex flex-column flex-md-row gap-3 gap-md-0">
+            <ul class="nav nav-tabs d-flex flex-row flex-md-column col-12 col-md-2 justify-content-md-around"
+                style="background-color: #f9f9f9;">
+                <li class="nav-item col-12">
+                    <div class="d-flex gap-2 align-items-center ps-2">
+                        <img src="Pic/pic-hoviat.png" alt="">
+                        <span>محمد عبدی</span>
+                    </div>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link active" href="#vijegiha">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/user-edit-icon.png" alt="">
+                            <span>اطلاعات فردی</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#nazarat">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/dollar-circle-icon.png" alt="">
+                            <span>پرداخت و اقساط</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#moghayese">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/bag-icon.png" alt="">
+                            <span>سفارش ها</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#lists">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/heart-icon.png" alt="">
+                            <span>لیست های من</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#hedieh">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/gift-icon.png" alt="">
+                            <span>کارت های هدیه</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/notification-icon.png" alt="">
+                            <span>پیغام ها</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/24-support-icon.png" alt="">
+                            <span>تماس با ما</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item col-6 col-md-12">
+                    <a data-bs-toggle="tab" class="nav-link" href="#">
+                        <div class="d-flex gap-2 ps-2 align-items-center">
+                            <img src="Pic/logout-icon.png" alt="">
+                            <span style="color: #ED2E2E;">خروج</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content w-100 position-relative col-12 col-md-9">
+                <!-------------------------------------- vijegi ---------------------------------->
+
+                <div class="tab-pane gap-5 gap-md-4 fade d-md-flex flex-column p-1 p-sm-2 p-md-5 flex-wrap active show"
+                    id="vijegiha">
+                    <strong>اطلاعات فردی</strong>
+                    <span style="color: #606060;">هویت خود را تائید نمایید</span>
+                    <div class="d-flex flex-column flex-md-row gap-5">
+                        <div class="d-flex flex-column gap-2 mt-2 mt-md-0">
+                            <div class="d-flex flex-column gap-1">
+                                <span style="color: #606060;">
+                                    نام نام خانوادگی
+                                </span>
+                                <img src="Pic/hoviat-1.png" alt="">
+                            </div>
+                            <div class="d-flex flex-column gap-1">
+                                <span style="color: #606060;">
+                                    شماره همراه
+                                </span>
+                                <img src="Pic/hoviat-2.png" alt="">
+                            </div>
+                            <div class="d-flex flex-column gap-1">
+                                <span style="color: #606060;">
+                                    آدرس
+                                </span>
+                                <img src="Pic/hoviat-3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex flex-column gap-1">
+                                <span style="color: #606060;">
+                                    ایمیل
+                                </span>
+                                <img src="Pic/hoviat-4.png" alt="">
+                            </div>
+                            <div class="d-flex flex-column gap-1">
+                                <span style="color: #606060;">
+                                    پسوورد
+                                </span>
+                                <img src="Pic/hoviat-5.png" alt="">
+                            </div>
+                            <div class="d-flex flex-column gap-1">
+                                <span style="color: #606060;">
+                                    کد پستی
+                                </span>
+                                <img src="Pic/hoviat-6.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-------------------------------------- nazart ---------------------------------->
+
+                <div class="tab-pane gap-3 fade d-flex flex-column position-absolute top-0 w-100 flex-wrap p-1 p-sm-2 p-md-5"
+                    id="nazarat">
+                    <strong>کارت ها</strong>
+                    <span style="color: #606060;">مدیریت روش های پرداخت</span>
+                    <div class="d-flex flex-column gap-2 w-25">
+                        <span style="color: #606060;">کارت بانکی اول</span>
+                        <img src="Pic/input-card.png" alt="">
+                        <span style="color: #606060;">کارت بانکی دوم</span>
+                        <img src="Pic/input-card.png" alt="">
+                    </div>
+                    <strong>اقساط</strong>
+                    <div class="d-flex gap-2 align-items-center">
+                        <span style="color: #5E0A8E;">مدیریت اقساط</span>
+                        <img src="Pic/arrow-left-icon.png" alt="">
+                    </div>
+                </div>
+
+                <!-------------------------------------- moghayese ---------------------------------->
+
+                <div class="tab-pane w-100 fade position-absolute top-0 d-flex flex-wrap ms-1" id="moghayese">
+                    <div class="d-flex flex-column align-content-between gap-4 col-12 col-md-9">
+                        <div class="d-flex flex-column p-3 justify-content-between gap-5 rounded-3 border">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong>تاریخچه سفارشات</strong>
+                                <svg style="width: 1rem; height: 1rem;">
+                                    <use xlink:href="#search"></use>
+                                </svg>
+                            </div>
+                            <div class="d-flex gap-5 w-100 align-items-center flex-column flex-md-row">
+                                <div class="d-flex gap-1 align-items-center" style="border-bottom: solid 1px #ED2E2E;">
+                                    <span style="color: #ED2E2E;">جاری</span>
+                                    <div class="d-flex align-items-center p-2 justify-content-center align-content-center"
+                                        style="background-color: #ED2E2E; width: 16px; height: 16px; color: white; font-size: 10px;">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-1 align-items-center">
+                                    <span>تحویل شده</span>
+                                    <div class="d-flex align-items-center p-2 justify-content-center align-content-center"
+                                        style="background-color: #8a8a8a; width: 16px; height: 16px; color: white; font-size: 10px;">
+                                        99
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-1 align-items-center">
+                                    <span>مرجوع شده</span>
+                                    <div class="d-flex align-items-center p-2 justify-content-center align-content-center"
+                                        style="background-color: #8a8a8a; width: 16px; height: 16px; color: white; font-size: 10px;">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-1 align-items-center">
+                                    <span>لغو شده</span>
+                                    <div class="d-flex align-items-center p-2 justify-content-center align-content-center"
+                                        style="background-color: #8a8a8a; width: 16px; height: 16px; color: white; font-size: 10px;">
+                                        41
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column rounded-3 border">
+                            <div class="d-flex flex-column p-3" style="border-bottom: solid 1px gainsboro;">
+                                <div class="d-flex flex-column gap-3" style="color: gray;">
+                                    <strong style="color: black;">آماده سازی سفارش</strong>
+                                    <div class="d-flex gap-md-4 flex-column flex-md-row gap-2" style="direction: rtl;">
+                                        <span>16 فروردین</span>
+                                        x
+                                        <span>کد سفارش 386648136</span>
+                                        x
+                                        <span>مبلغ 15.123.800 تومان</span>
+                                        x
+                                        <span>تخفیف 50.800 تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column p-3 gap-3">
+                                <strong>مرسوله 1 از 1</strong>
+                                <div class="d-flex justify-content-between flex-column flex-md-row gap-2 gap-md-0">
+                                    <div class="d-flex gap-2">
+                                        <span style="color: gray;">تحویل</span>
+                                        <span>پنج شنبه ۲۳ فروردین بازه ۹ - ۲۲</span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <div class="d-flex justify-content-between">
+                                            <span>آماده سازی سفارش</span>
+                                            <div class="d-flex gap-2">
+                                                <span style="color: gray;">مرحله بعد:</span>
+                                                <span>پردازش شده</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <img src="Pic/greenvector.png" alt="">
+                                            <img src="Pic/grayvector.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-3">
+                                    <img src="Pic/pic-sefaresh-1.png" alt="">
+                                    <img src="Pic/pic-sefaresh-2.png" alt="">
+                                    <img src="Pic/pic-sefaresh-3.png" alt="">
+                                    <img src="Pic/pic-sefaresh-4.png" alt="">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-------------------------------------- lists ---------------------------------->
+                <div class="tab-pane w-100 fade position-absolute top-0 d-flex flex-wrap ms-1" id="lists">
+                    <div class="d-flex flex-column col-12 col-md-9 align-content-between justify-content-between gap-4">
+                        <div class="d-flex flex-column p-3 gap-4">
+                            <div class="d-flex flex-column gap-2">
+                                <strong>علاقه مندی ها</strong>
+                                <span style="color: #606060;">مواردی که لیست شده</span>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex justify-content-between flex-column flex-md-row">
+                                    <div class="d-flex flex-column gap-3 p-3">
+                                        <div class="d-flex align-items-center"><img src="Pic/favourite1.png" alt="">
+                                        </div>
+                                        <div style="font-size: 12px;">گوشی موبایل سامسونگ مدل Galaxy A54 5G</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center rounded-4 align-content-center p-1 gap-2"
+                                                style="background-color: #F9F9F9;">
+                                                <img src="Pic/truck-time.png" alt="">
+                                                <span style="font-size: 10px; color: #777777;">ارسال رایگان</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                                                <img src="Pic/medal-star.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row-reverse">
+                                            <a href="">
+                                                <strong>16،570،000</strong>
+                                                <span style="color: #202020;">تومان</span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-between">
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-4 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #202020;">
+                                                <img src="Pic/bag-account.png" alt="">
+                                                <span style="font-size: 12px;">حذف</span>
+                                            </div>
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-8 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #5E0A8E;">
+                                                <img src="Pic/shopping-cart-account.png" alt="">
+                                                <span style="font-size: 12px; color: #5E0A8E;">افزودن به سبد خرید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3 p-3">
+                                        <div class="d-flex align-items-center"><img src="Pic/favourite2.png" alt="">
+                                        </div>
+                                        <div style="font-size: 12px;">ماوس بی سیم تسکو مدل TM 694</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center rounded-4 align-content-center p-1 gap-2"
+                                                style="background-color: #F9F9F9;">
+                                                <img src="Pic/truck-time.png" alt="">
+                                                <span style="font-size: 10px; color: #777777;">ارسال رایگان</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                                                <img src="Pic/medal-star.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row-reverse">
+                                            <a href="">
+                                                <strong>339،000</strong>
+                                                <span style="color: #202020;">تومان</span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-between">
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-4 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #202020;">
+                                                <img src="Pic/bag-account.png" alt="">
+                                                <span style="font-size: 12px;">حذف</span>
+                                            </div>
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-8 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #5E0A8E;">
+                                                <img src="Pic/shopping-cart-account.png" alt="">
+                                                <span style="font-size: 12px; color: #5E0A8E;">افزودن به سبد خرید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3 p-3">
+                                        <div class="d-flex align-items-center"><img src="Pic/favourite3.png" alt="">
+                                        </div>
+                                        <div style="font-size: 12px;">ساعت هوشمند Mibro</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center rounded-4 align-content-center p-1 gap-2"
+                                                style="background-color: #F9F9F9;">
+                                                <img src="Pic/truck-time.png" alt="">
+                                                <span style="font-size: 10px; color: #777777;">ارسال رایگان</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                                                <img src="Pic/medal-star.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row-reverse">
+                                            <a href="">
+                                                <strong>49،499،000</strong>
+                                                <span style="color: #202020;">تومان</span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-between">
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-4 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #202020;">
+                                                <img src="Pic/bag-account.png" alt="">
+                                                <span style="font-size: 12px;">حذف</span>
+                                            </div>
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-8 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #5E0A8E;">
+                                                <img src="Pic/shopping-cart-account.png" alt="">
+                                                <span style="font-size: 12px; color: #5E0A8E;">افزودن به سبد خرید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between flex-column flex-md-row">
+                                    <div class="d-flex flex-column gap-3 p-3">
+                                        <div class="d-flex align-items-center"><img src="Pic/favourite4.png" alt="">
+                                        </div>
+                                        <div style="font-size: 12px;">گوشی موبایل سامسونگ مدل Galaxy A54 5G</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center rounded-4 align-content-center p-1 gap-2"
+                                                style="background-color: #F9F9F9;">
+                                                <img src="Pic/truck-time.png" alt="">
+                                                <span style="font-size: 10px; color: #777777;">ارسال رایگان</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                                                <img src="Pic/medal-star.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row-reverse">
+                                            <a href="">
+                                                <strong>49،499،000</strong>
+                                                <span style="color: #202020;">تومان</span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-between">
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-4 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #202020;">
+                                                <img src="Pic/bag-account.png" alt="">
+                                                <span style="font-size: 12px;">حذف</span>
+                                            </div>
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-8 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #5E0A8E;">
+                                                <img src="Pic/shopping-cart-account.png" alt="">
+                                                <span style="font-size: 12px; color: #5E0A8E;">افزودن به سبد خرید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3 p-3">
+                                        <div class="d-flex align-items-center"><img src="Pic/favourite5.png" alt="">
+                                        </div>
+                                        <div style="font-size: 12px;">ماوس بی سیم تسکو مدل TM 694</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center rounded-4 align-content-center p-1 gap-2"
+                                                style="background-color: #F9F9F9;">
+                                                <img src="Pic/truck-time.png" alt="">
+                                                <span style="font-size: 10px; color: #777777;">ارسال رایگان</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                                                <img src="Pic/medal-star.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row-reverse">
+                                            <a href="">
+                                                <strong>49،499،000</strong>
+                                                <span style="color: #202020;">تومان</span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-between">
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-4 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #202020;">
+                                                <img src="Pic/bag-account.png" alt="">
+                                                <span style="font-size: 12px;">حذف</span>
+                                            </div>
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-8 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #5E0A8E;">
+                                                <img src="Pic/shopping-cart-account.png" alt="">
+                                                <span style="font-size: 12px; color: #5E0A8E;">افزودن به سبد خرید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3 p-3">
+                                        <div class="d-flex align-items-center"><img src="Pic/favourite6.png" alt="">
+                                        </div>
+                                        <div style="font-size: 12px;">ساعت هوشمند Mibro</div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center rounded-4 align-content-center p-1 gap-2"
+                                                style="background-color: #F9F9F9;">
+                                                <img src="Pic/truck-time.png" alt="">
+                                                <span style="font-size: 10px; color: #777777;">ارسال رایگان</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                                                <img src="Pic/medal-star.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row-reverse">
+                                            <a href="">
+                                                <strong>49،499،000</strong>
+                                                <span style="color: #202020;">تومان</span>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-between">
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-4 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #202020;">
+                                                <img src="Pic/bag-account.png" alt="">
+                                                <span style="font-size: 12px;">حذف</span>
+                                            </div>
+                                            <div class="d-flex pt-1 pb-1 ps-2 pe-2 rounded-3 col-8 align-items-center justify-content-center gap-1"
+                                                style="border: solid 1px #5E0A8E;">
+                                                <img src="Pic/shopping-cart-account.png" alt="">
+                                                <span style="font-size: 12px; color: #5E0A8E;">افزودن به سبد خرید</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------------- hedieh ---------------------------------->
+                <div class="tab-pane w-100 fade position-absolute top-0 d-flex flex-wrap ms-1" id="hedieh">
+                    <div class="d-flex flex-column col-12 col-md-9 align-content-between justify-content-between gap-4">
+                        <div class="d-flex flex-column p-3 gap-4">
+                            <div class="d-flex flex-column gap-2">
+                                <strong>کارت هدیه دارید؟</strong>
+                                <span style="color: #606060;">لیست کارت ها</span>
+                            </div>
+                            <div class="d-flex w-100 align-content-center justify-content-center">
+                                <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
+                                    <img src="Pic/hedieh-pic.png" alt="">
+                                    <span>کسی به شما کارت هدیه داده؟ یا خودتون کارت هدیه دارید؟</span>
+                                    <span class="justify-content-center d-flex">اینجا اضافه کنید تا بعدا دنبالش
+                                        نگردید</span>
+                                    <div class="ps-3 pe-3 pt-2 pb-2 rounded-2"
+                                        style="background-color: #5E0A8E; color: white;">اضافه کردن کارت هدیه</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.6.0-web/css/all.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="detail-product.css">
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- ------------------------ My icons ------------------------ -->
+    <svg class="d-none">
+        <symbol id="shopping-cart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+        </symbol>
+        <symbol id="enter" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+        </symbol>
+        <symbol id="search" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </symbol>
+        <symbol id="chevron-down" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </symbol>
+        <symbol id="user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+        </symbol>
+        <symbol id="chevron-left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </symbol>
+        <symbol id="heart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </symbol>
+        <symbol id="mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+        </symbol>
+
+
+
+
+    </svg>
+    <!-- ------------------------ modal ------------------------ -->
+    <div class="modal fade" id="modal-login" aria-hidden="true" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-around">
+                    <img src="Pic/Group 61493(1).png" alt="">
+                </div>
+                <div class="modal-body d-flex flex-column align-items-center" style="color: #945CB4;">
+                    ورود/ثبت نام
+                </div>
+                <div style="direction: rtl;" class="ms-4">
+                    شماره موبایل خود را وارد کنید
+                </div>
+                <div class="align-items-center d-flex justify-content-around">
+                    <div class="input-icons-m">
+                        <input class="input-field-m" type="text" placeholder="09XXXXXXXXX">
+                        <i class="fa-regular fa-user icon-m"></i>
+                    </div>
+                </div>
+                <div style="direction: rtl;" class="ms-4 mt-2">
+                    <input type="checkbox">
+                    <span>با ورود و ثبت‌نام در سایت، با </span>
+                    <span style="color: #5E0A8E;">قوانین تکنوشاپ</span>
+                    <span>موافقت می کنم.</span>
+                </div>
+                <a href="account.html">
+                    <button id="button-login">
+                        تایید
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------ header ------------------------ -->
+    <header class="d-none d-md-block">
+        <div class="d-flex justify-content-between ps-5 pt-3 pe-5 align-items-center gap-3 gap-xl-0">
+            <div class="d-flex gap-3">
+                <a class="ps-4 pt-1 dropdown-toggle" data-bs-toggle="dropdown" style="border-right:solid 2px #9F9F9F;"
+                    href="">
+                    <svg style="width: 2rem; height: 2rem;">
+                        <use xlink:href="#shopping-cart"></use>
+                    </svg>
+                </a>
+                <div class="dropdown-menu" id="sabad-menu" style="direction: rtl;">
+                    <div class="dropdown-item" style="direction: rtl; color: #404040;">
+                        <span>2 کالا</span>
+                    </div>
+                    <div class="dropdown-item d-flex gap-2">
+                        <div class="d-flex flex-column justify-content-between">
+                            <img src="Pic/sabad-1.png" alt="">
+                            <img src="Pic/count.png" alt="">
+                        </div>
+                        <div class="d-flex flex-column gap-1" id="sabad-tx">
+                            <strong>لپ تاپ 13.3 اینچی اپل<br> مدل MacBook Air MGN63 2020</strong>
+                            <div class="gap-2">
+                                <img src="Pic/Ellipse-gray.png" alt="">
+                                <span>خاکستری</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/truck-icon.png" alt="">
+                                <span>ارسال تکنوشاپ</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/verify-icon.png" alt="">
+                                <span>گارانتی یکساله تکنو</span>
+                            </div>
+                            <div class="gap-2">
+                                <strong>50،500،000</strong>
+                                <span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item d-flex gap-2">
+                        <div class="d-flex flex-column justify-content-between">
+                            <img src="Pic/sabad-2.png" alt="">
+                            <img src="Pic/count.png" alt="">
+                        </div>
+                        <div class="d-flex flex-column gap-1" id="sabad-tx">
+                            <strong>کیف محافظ لپ تاپ 13.3 اینچی اپل<br> به همراه کیف شارژر مجزا</strong>
+                            <div class="gap-2">
+                                <img src="Pic/Ellipse-blue.png" alt="">
+                                <span>خاکستری</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/truck-icon.png" alt="">
+                                <span>ارسال تکنوشاپ</span>
+                            </div>
+                            <div class="gap-2">
+                                <img src="Pic/verify-icon.png" alt="">
+                                <span>گارانتی یکساله تکنو</span>
+                            </div>
+                            <div class="gap-2">
+                                <strong>990،000</strong>
+                                <span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item d-flex justify-content-between">
+                        <div class="d-flex flex-column justify-content-between">
+                            <span style="color: #404040;">مبلغ قابل پرداخت</span>
+                            <div class="gap-2">
+                                <strong>51،490،000</strong>
+                                <span>تومان</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <img src="Pic/Button-sabad.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <button style="background-color: #5E0A8E !important; color: white;" class="login" data-bs-toggle="modal"
+                    data-bs-target="#modal-login">
+                    ورود / ثبت نام
+                    <svg style="width: 1.5rem; height: 1.5rem;">
+                        <use xlink:href="#enter"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-icons mt-3">
+                <i class="fa fa-search icon"></i>
+                <input class="input-field" type="text" placeholder="جستجو">
+            </div>
+            <div>
+                <img src="Pic/Group 61493(1).png" alt="Logo">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-5 w-100 mt-2 nav-menu p-2 mb-2">
+            <a href="#">راهنمای خرید</a>
+            <a href="contact.html">تماس با ما</a>
+            <a href="about.html">درباره ما</a>
+            <a href="blog.html">وبلاگ</a>
+            <a href="#" data-bs-toggle="dropdown">
+                <svg style="width: 1rem; height: 1rem;">
+                    <use xlink:href="#chevron-down"></use>
+                </svg>
+                <span>
+                    دسته بندی کالاها
+                </span>
+            </a>
+            <!-- ---------- dropdown-items -------------- -->
+            <div class="dropdown-menu" id="daste-menu">
+                <div id="mobile-sub" class="dropdown-item">
+                    <a href="#">
+                        <span>موبایل</span>
+                        <img src="Pic/mobile-icon.png" alt="">
+                    </a>
+                    <!-- ---------- sub-menu -------------- -->
+                    <div class="sub-menu bg-white d-flex flex-column">
+                        <div class="d-flex gap-1">
+                            <img src="Pic/mobile-icon.png" alt="">
+                            <span>موبایل</span>
+                        </div>
+                        <div class="d-flex gap-1">
+                            <img src="Pic/devices-icon.png" alt="">
+                            <span style="color: #5E0A8E;">لوازم جانبی موبایل</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div><strong>همه محصولات موبایل</strong></div>
+                            <div class="d-flex gap-3">
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-1.png" alt="">
+                                    <span>گلس محافظ و کاور</span>
+                                </div>
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-2.png" alt="">
+                                    <span>شارژر و کابل</span>
+                                </div>
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-3.png" alt="">
+                                    <span>نگهدارنده موبایل</span>
+                                </div>
+                                <div
+                                    class="d-flex shadow p-2 flex-column align-content-center align-items-center justify-content-center">
+                                    <img src="Pic/sub-menu-4.png" alt="">
+                                    <span>ساعت هوشمند و ایرپاد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="product.html">
+                    <span>لپتاپ و کامپیوتر</span>
+                    <img src="Pic/monitor-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>تبلت</span>
+                    <img src="Pic/tablet-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>ساعت هوشمند</span>
+                    <img src="Pic/watch-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>دوربین</span>
+                    <img src="Pic/camera-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>محصولات گیمینگ</span>
+                    <img src="Pic/game-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>اینترنت</span>
+                    <img src="Pic/data-icon.png" alt="">
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <span>تجهیزات جانبی</span>
+                    <img src="Pic/devices-icon.png" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- ------------------------ header-mobile ------------------------ -->
+    <div class="d-flex d-md-none flex-column align-content-center align-items-center p-3 header-mobile">
+        <div class="input-icons mt-3 w-100">
+            <i class="fa fa-search icon"></i>
+            <input class="input-field" type="text" placeholder="جستجو">
+        </div>
+        <div class="flex-column d-flex">
+            <img src="Pic/Group 61493(1).png" alt="">
+            <div class="d-flex gap-4">
+                <a href="blog.html">وبلاگ</a>
+                <a href="about.html">درباره ما</a>
+                <a href="contact.html">تماس با ما</a>
+                <a href="#">راهنمای خرید</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- ------------------------ section-dastebandi ------------------------ -->
+    <div class="d-flex align-items-center p-3 sec-dastebandi">
+        <span>فروشگاه اینترنتی تکنوشاپ</span>
+        <svg style="width: 1rem; height: 1rem; color: #5E0A8E;">
+            <use xlink:href="#chevron-left"></use>
+        </svg>
+        <span>لپتاپ</span>
+        <svg style="width: 1rem; height: 1rem; color: #5E0A8E;">
+            <use xlink:href="#chevron-left"></use>
+        </svg>
+        <span>مک بوک</span>
+        <svg style="width: 1rem; height: 1rem; color: #5E0A8E;">
+            <use xlink:href="#chevron-left"></use>
+        </svg>
+        <span>لپ تاپ 13 اینچی اپل مدل MacBook Air MGN63 2020</span>
+    </div>
+    <!-- ------------------------ product-intro ------------------------ -->
+    <div class="d-flex flex-column justify-content-between flex-md-row p-3 mt-1 gap-4" style="direction: rtl;">
+        <div class="d-flex flex-column flex-md-row gap-5 col-12 col-md-8">
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="#">
+                        <img src="Pic/right-icon.png" alt="">
+                    </a>
+                    <img src="Pic/refurb-macbook-asli.png" alt="">
+                    <a href="#">
+                        <img src="Pic/left-icon.png" alt="">
+                    </a>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <img src="Pic/pic-4-intro.png" alt="">
+                    <img src="Pic/pic-3-intro.png" alt="">
+                    <img src="Pic/pic-2-intro.png" alt="">
+                    <img src="Pic/pic-1-intro.png" alt="">
+                </div>
+            </div>
+            <!-- ---------------------------------------------------------- -->
+            <div class="d-flex flex-column intro ps-3">
+                <strong>لپ تاپ 13 اینچی اپل مدل MacBook Air MGN63 2020</strong>
+                <span style="color: gray; font-size: 12px;">Apple MacBook Air MGN63 2020 - 13 inch Laptop</span>
+                <div class="d-flex align-items-center gap-2 align-content-center p-2 border-bottom w-50">
+                    <span style="color: gray; font-size: 12px;">امتیاز کاربران:</span>
+                    <img src="Pic/stars.png" alt="">
+                </div>
+                <div class="d-flex pt-2">
+                    <strong>رنگ:</strong>
+                    <strong>مشکی</strong>
+                </div>
+                <div class="d-flex pt-2 pb-3 border-bottom w-25">
+                    <img src="Pic/black-color.png" alt="">
+                </div>
+                <div class="d-flex gap-1 pt-2 align-items-center">
+                    <img src="Pic/verify-icon.png" alt="">
+                    <span style="font-size: 12px;">گارانتی 18 ماهه آروند</span>
+                </div>
+                <div class="d-flex gap-1 pt-2 align-items-center">
+                    <span>تومان</span>
+                    <strong>53،000،000</strong>
+                </div>
+                <div class="d-flex gap-3 mt-1">
+                    <div
+                        class="d-flex align-items-center align-content-center justify-content-center gap-2 button-1-sabad">
+                        <span>افزودن به سبد خرید</span>
+                        <img src="Pic/shopping-cart-detail.png" alt="">
+                    </div>
+                    <div
+                        class="d-flex align-items-center align-content-center justify-content-center gap-2 button-2-compare">
+                        <span>مقایسه کن</span>
+                        <img src="Pic/chart-square.svg" alt="">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span style="color: red;">1 عدد در انبار باقی مانده</span>
+                    <div>
+                        <img src="Pic/cards-detail.png" alt="">
+                        <span style="font-size: 14px; color: #945CB4;">راهنمای خرید اقساطی</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column gap-2 justify-content-end col-12 col-md-3">
+            <strong>ویژگی ها</strong>
+            <div class="d-flex flex-column p-2 gap-2 sec-vijegi">
+                <div class="d-flex gap-1">
+                    <span style="color: gray;">نوع کاربری:</span>
+                    <span>عمومی/طراحی</span>
+                </div>
+                <div class="d-flex gap-1">
+                    <span style="color: gray;">ابعاد نمایشگر:</span>
+                    <span>13.3 اینچ</span>
+                </div>
+                <div class="d-flex gap-1">
+                    <span style="color: gray;">سری پردازنده:</span>
+                    <span>AppleM1</span>
+                </div>
+                <div class="d-flex gap-1">
+                    <span style="color: gray;">ظرفیت حافظه RAM:</span>
+                    <span>8 گیگابایت</span>
+                </div>
+                <div class="d-flex gap-1">
+                    <span style="color: gray;">سازنده پردازنده گرافیکی:</span>
+                    <span>Apple</span>
+                </div>
+                <div class="d-flex gap-1">
+                    <span style="color: gray;">ظرفیت حافظه داخلی:</span>
+                    <span>256 گیگابایت</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------ section-3-detail ------------------------ -->
+    <div class="section-3-detail gap-5 p-3 w-auto ms-3 me-3 mt-1 d-flex"
+        style="direction: rtl; background-color: #fafafa;">
+        <strong style="color: #5E0A8E;">مشخصات فنی</strong>
+        <strong>نقد و بررسی</strong>
+        <strong>نظرات کاربران</strong>
+    </div>
+    <div class="d-flex flex-column p-3 ms-3 gap-3 tozih-detail border-bottom" style="direction: rtl;">
+        <strong style="font-size: 30px; color: #5E0A8E;direction: rtl;">مشخصات</strong>
+        <div class="d-flex justify-content-between p-3">
+            <span>سری لپتاپ:</span>
+            <span>Macbook Air M1</span>
+        </div>
+        <div class="d-flex justify-content-between p-3">
+            <span>نوع کاربری:</span>
+            <span>طراحی/عمومی</span>
+        </div>
+        <div class="d-flex justify-content-between p-3">
+            <span>وزن:</span>
+            <span>1.29 کیلوگرم</span>
+        </div>
+        <div class="d-flex justify-content-between p-3">
+            <span>ابعاد:</span>
+            <span>میلی متر 304.1x212.4x16.1</span>
+        </div>
+        <div class="d-flex justify-content-between p-3">
+            <span>ابعاد نمایشگر:</span>
+            <span>13.3 اینچ</span>
+        </div>
+        <a class="d-flex align-items-center gap-1" href="#" style="color: #5E0A8E !important;">
+            <span>نمایش بیشتر</span>
+            <svg style="width: 1rem; height: 1rem;">
+                <use xlink:href="#chevron-down"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="d-flex flex-column p-3 ms-3 gap-3 tozih-detail border-bottom" style="direction: rtl;">
+        <strong style="font-size: 30px; color: #5E0A8E;direction: rtl;">نقد و بررسی</strong>
+        <strong>نگاهی به مک بوک ایر MGN63 2020</strong>
+        <span>لپ تاپ 13 اینچی اپل مدل MacBook Air MGN63 2020، نخستین لپ تاپ کمپانی اپل با تراشه قدرتمند و اختصاصی M1 است
+            که با توان پردازشی بالای خود قادر است دستورات کاربران را در سریع‌ترین زمان ممکن مدیریت کند. مک بوک ایر MGN63
+            2020 به نمایشگر 13.3 اینچی رتینا با پشتیبانی از فناوری HDR10 مجهز شده و کیبورد حرفه‌ای Magic Keyboard اپل،
+            تجربه‌ای متفاوت از تایپ کردن را برای کاربران رقم خواهد زد. افزون بر این، وجود امکاناتی مانند تاچ آی دی و
+            پورت‌های USB-C با پشتیبانی از فناوری تاندربولت، مک بوک پیش رو را به محصولی همه‌فن حریف تبدیل می‌کنند.
+        </span>
+        <span class="d-none d-md-flex justify-content-center align-items-center align-content-center p-3">
+            <img src="Pic/barresi-pic.png" alt="">
+        </span>
+        <strong class="d-none d-md-block">طراحی و کیفیت ساخت Macbook Air 2020 MGN63</strong>
+        <span class="d-none d-md-block">
+            در طراحی مک بوک ایر 2020، اپل از آلیاژ آلومینیوم برای تولید بدنه اصلی استفاده کرده و طراحی مهندسی این لپ تاپ
+            باعث شده تا وزن آن به فقط 1.29 کیلوگرم برسد؛ این یعنی کاربران بدون نگرانی می‌توانند لپ تاپ را همه‌جا همراه
+            خود داشته باشند. سیستم بدون فن، یکی دیگر از نقاط قوت در طراحی مک بوک ایر MGN63 2020 بوده و باعث می‌شود تا
+            حتی موقع پردازش‌های سنگین نیز دستگاه، کمترین صدا را داشته باشد.
+        </span>
+        <a class="d-flex align-items-center gap-1" href="#" style="color: #5E0A8E !important;">
+            <span>نمایش بیشتر</span>
+            <svg style="width: 1rem; height: 1rem;">
+                <use xlink:href="#chevron-down"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="d-flex flex-column p-3 ms-3 gap-3 border-bottom" style="direction: rtl;">
+        <strong style="font-size: 30px; color: #5E0A8E;direction: rtl;">نظرات کاربران</strong>
+        <div class="d-none d-md-flex pb-3 justify-content-between align-items-center border-bottom"
+            style="direction: rtl;">
+            <div class="d-flex gap-5">
+                <div class="d-flex align-items-center align-content-center gap-1">
+                    <img src="Pic/layer.svg" alt="">
+                    <span>مرتب سازی:</span>
+                </div>
+                <span class="jadidtarin">جدید ترین</span>
+                <span style="color: gray;">قدیمی ترین</span>
+                <span style="color: gray;">بیشترین امتیاز</span>
+                <span style="color: gray;">کمترین امتیاز</span>
+            </div>
+            <div class="button-nazar">
+                <span>نظر خود را ثبت کنید</span>
+            </div>
+        </div>
+        <div class="d-none d-md-flex flex-md-column overflow-auto ps-3 pe-3 pt-2 gap-4">
+            <div class="comment flex-column d-flex border-bottom pt-2 pb-2">
+                <div class="d-flex justify-content-between align-items-center gap-2">
+                    <span style="color: #5E0A8E;">کاربر ناشناش</span>
+                    <span class="d-none d-md-block">آیا این نظر مفید بود؟</span>
+                    <div class="d-none d-md-flex justify-content-between gap-4">
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/dislike-icon.png" alt="">
+                        </span>
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/like-icon.png" alt="">
+                        </span>
+                    </div>
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                </div>
+                <div>
+                    <img src="Pic/stars-comment.png" alt="">
+                </div>
+                <span>1402/07/11</span>
+                <div class="d-flex mt-1">
+                    <span>عالی</span>
+                </div>
+            </div>
+            <!-- ------------------------------------------------------------------------- -->
+            <div class="comment flex-column d-flex border-bottom pt-2 pb-2">
+                <div class="d-flex gap-3 justify-content-between align-items-center">
+                    <span style="color: #5E0A8E;">کاربر ناشناش</span>
+                    <span class="d-none d-md-block">آیا این نظر مفید بود؟</span>
+                    <div class="d-none d-md-flex justify-content-between gap-4">
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/dislike-icon.png" alt="">
+                        </span>
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/like-icon.png" alt="">
+                        </span>
+                    </div>
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                </div>
+                <div>
+                    <img src="Pic/stars-comment.png" alt="">
+                </div>
+                <span>1402/07/11</span>
+                <div class="d-flex mt-1">
+                    <span class="d-flex flex-wrap">اگر با ترمینال و لینوکس اشنا و راحت نیستید این مک بوک و نخرید من برای
+                        کارای برنامه نویسی گرفتم و واقعا راحت تر از ویندوزه و تا حدود ۹۰٪ شبیه اوبونتو لینوکسه</span>
+                </div>
+            </div>
+
+
+            <div class="comment flex-column d-flex border-bottom pt-2 pb-2">
+                <div class="d-flex gap-3 justify-content-between align-items-center">
+                    <span style="color: #5E0A8E;">کاربر ناشناش</span>
+                    <span class="d-none d-md-block">آیا این نظر مفید بود؟</span>
+                    <div class="d-none d-md-flex justify-content-between gap-4">
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/dislike-icon.png" alt="">
+                        </span>
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/like-icon.png" alt="">
+                        </span>
+                    </div>
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                </div>
+                <div>
+                    <img src="Pic/stars-comment.png" alt="">
+                </div>
+                <span>1402/07/11</span>
+                <div class="d-flex mt-1">
+                    <span class="d-flex flex-wrap">واقعا می ارزه پشیمون نمیشید در برابر چیزی ک هست قیمتی نداره پارت
+                        نامبر امارات هست</span>
+                </div>
+            </div>
+
+
+
+            <div class="comment flex-column d-flex pt-2 pb-2">
+                <div class="d-flex gap-3 justify-content-between align-items-center">
+                    <span style="color: #5E0A8E;">کاربر ناشناش</span>
+                    <span class="d-none d-md-block">آیا این نظر مفید بود؟</span>
+                    <div class="d-none d-md-flex justify-content-between gap-4">
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/dislike-icon.png" alt="">
+                        </span>
+                        <span class="d-flex gap-2">
+                            <span>0</span>
+                            <img src="Pic/like-icon.png" alt="">
+                        </span>
+                    </div>
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                </div>
+                <div>
+                    <img src="Pic/stars-comment.png" alt="">
+                </div>
+                <span>1402/07/11</span>
+                <div class="d-flex mt-1">
+                    <span class="d-flex flex-wrap">من این مک بوک رو واسه دخترم که تدریس آنلاین می‌کنه گرفتم، و راضی بود.
+                        فقط مثل بقیه چیزها قیمتش
+                        خیلی زیاده 😐</span>
+                </div>
+            </div>
+        </div>
+        <a class="d-none d-md-flex mt-2 align-items-center gap-1" href="#" style="color: #5E0A8E !important;">
+            <span>نمایش بیشتر</span>
+            <svg style="width: 1rem; height: 1rem;">
+                <use xlink:href="#chevron-down"></use>
+            </svg>
+        </a>
+        <!-- comment-mobile -->
+        <div class="d-flex d-md-none overflow-auto gap-2">
+            <div class="d-flex flex-column justify-content-between gap-3 border p-3 rounded-3">
+                <div class="d-flex flex-column">
+                    <span>کاربر ناشناش</span>
+                    <img src="Pic/starscommentmobile.png" alt="">
+                    <span>1402/07/11</span>
+                </div>
+                <span>عالی</span>
+                <div class="d-flex justify-content-between gap-5">
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                    <div class="d-flex gap-4">
+                        <span>0</span>
+                        <img src="Pic/dislike-mobile.png" alt="">
+                        <span>0</span>
+                        <img src="Pic/like-mobile.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-between gap-3 border p-3 rounded-3">
+                <div class="d-flex flex-column">
+                    <span>کاربر ناشناش</span>
+                    <img src="Pic/starscommentmobile.png" alt="">
+                    <span>1402/07/11</span>
+                </div>
+                <span class="d-flex flex-wrap">اگر با ترمینال و لینوکس اشنا و راحت نیستید این مک بوک و نخرید من برای
+                    کارای برنامه نویسی گرفتم و واقعا راحت تر از ویندوزه و تا حدود ۹۰٪ شبیه اوبونتو لینوکسه</span>
+                <div class="d-flex justify-content-between gap-5">
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                    <div class="d-flex gap-4">
+                        <span>0</span>
+                        <img src="Pic/dislike-mobile.png" alt="">
+                        <span>0</span>
+                        <img src="Pic/like-mobile.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-between gap-3 border p-3 rounded-3">
+                <div class="d-flex flex-column">
+                    <span>کاربر ناشناش</span>
+                    <img src="Pic/starscommentmobile.png" alt="">
+                    <span>1402/07/11</span>
+                </div>
+                <span class="d-flex flex-wrap">واقعا می ارزه پشیمون نمیشید در برابر چیزی ک هست قیمتی نداره پارت
+                    نامبر امارات هست</span>
+                <div class="d-flex justify-content-between gap-5">
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                    <div class="d-flex gap-4">
+                        <span>0</span>
+                        <img src="Pic/dislike-mobile.png" alt="">
+                        <span>0</span>
+                        <img src="Pic/like-mobile.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-between gap-3 border p-3 rounded-3">
+                <div class="d-flex flex-column">
+                    <span>کاربر ناشناش</span>
+                    <img src="Pic/starscommentmobile.png" alt="">
+                    <span>1402/07/11</span>
+                </div>
+                <span class="d-flex flex-wrap">من این مک بوک رو واسه دخترم که تدریس آنلاین می‌کنه گرفتم، و راضی بود.
+                    فقط مثل بقیه چیزها قیمتش
+                    خیلی زیاده 😐</span>
+                <div class="d-flex justify-content-between gap-5">
+                    <span style="color: #5E0A8E;">پاسخ</span>
+                    <div class="d-flex gap-4">
+                        <span>0</span>
+                        <img src="Pic/dislike-mobile.png" alt="">
+                        <span>0</span>
+                        <img src="Pic/like-mobile.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex d-md-none align-content-center justify-content-center mt-2 button-nazar w-50">
+            <span>نظر خود را ثبت کنید</span>
+        </div>
+    </div>
+    <!-- ------------------------ section-3-kalayemoshabeh ------------------------ -->
+    <div class="d-flex flex-column p-3 mt-2 ms-3">
+        <strong style="font-size: 30px; color: #5E0A8E;direction: rtl;">کالاهای مشابه</strong>
+        <div class="d-flex w-100 gap-1 gap-md-5 overflow-auto justify-content-md-center align-content-md-center"
+            style="direction: rtl;">
+            <div class="pe-1 pe-md-5 borders-moshabeh" style="direction: ltr;">
+                <div class="d-flex flex-column p-2 rounded-3" style="background-color: #FAFAFA;">
+                    <div style="direction: rtl;">
+                        <svg style="width: 1rem; height: 1rem;">
+                            <use xlink:href="#heart"></use>
+                        </svg>
+                    </div>
+                    <div
+                        class="d-flex gap-2 flex-column justify-content-center align-content-center align-items-center">
+                        <img src="Pic/moshabeh-4.png" alt="">
+                        <span style="direction: rtl;">لپتاپ 13 اینچی اپل مدل<br>MacBook Air MGND3 2020 <br> 256GB</span>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div>
+                                <img src="Pic/medal-star.png" alt="">
+                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                            </div>
+                            <span style="font-size: 12px; color: #ADADAD;">( ۴۳ نظر)</span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 w-75 gap-1 rounded-3" style="background-color: #5E0A8E; color: white;">
+                        <span>تومان</span>
+                        <strong>48،900،000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="pe-1 pe-md-5 borders-moshabeh" style="direction: ltr;">
+                <div class="d-flex flex-column p-2 rounded-3" style="background-color: #FAFAFA;">
+                    <div style="direction: rtl;">
+                        <svg style="width: 1rem; height: 1rem;">
+                            <use xlink:href="#heart"></use>
+                        </svg>
+                    </div>
+                    <div
+                        class="d-flex gap-2 flex-column justify-content-center align-content-center align-items-center">
+                        <img src="Pic/moshabeh-3.png" alt="">
+                        <span style="direction: rtl;">لپتاپ 15.6 اینچی لنوو مدل<br>Ideapad1-celeron N4020
+                            <br>256SSD</span>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div>
+                                <img src="Pic/medal-star.png" alt="">
+                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                            </div>
+                            <span style="font-size: 12px; color: #ADADAD;">( ۴۳ نظر)</span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 w-75 gap-1 rounded-3" style="background-color: #5E0A8E; color: white;">
+                        <span>تومان</span>
+                        <strong>10،470،000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="pe-1 pe-md-5 borders-moshabeh" style="direction: ltr;">
+                <div class="d-flex flex-column p-2 rounded-3" style="background-color: #FAFAFA;">
+                    <div style="direction: rtl;">
+                        <svg style="width: 1rem; height: 1rem;">
+                            <use xlink:href="#heart"></use>
+                        </svg>
+                    </div>
+                    <div
+                        class="d-flex gap-2 flex-column justify-content-center align-content-center align-items-center">
+                        <img src="Pic/moshabeh-2.png" alt="">
+                        <span style="direction: rtl;">لپتاپ 15.3 اینچی اپل مدل<br>MacBook Air MQKV3 2023-<br>M...</span>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div>
+                                <img src="Pic/medal-star.png" alt="">
+                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                            </div>
+                            <span style="font-size: 12px; color: #ADADAD;">( ۴۳ نظر)</span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 w-75 gap-1 rounded-3" style="background-color: #5E0A8E; color: white;">
+                        <span>تومان</span>
+                        <strong>85،900،000</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="pe-1 pe-md-5" style="direction: ltr;">
+                <div class="d-flex flex-column p-2 rounded-3" style="background-color: #FAFAFA;">
+                    <div style="direction: rtl;">
+                        <svg style="width: 1rem; height: 1rem;">
+                            <use xlink:href="#heart"></use>
+                        </svg>
+                    </div>
+                    <div
+                        class="d-flex gap-2 flex-column justify-content-center align-content-center align-items-center">
+                        <img src="Pic/moshabeh-1.png" alt="">
+                        <span style="direction: rtl;">لپتاپ 15.6 اینچی دل مدل<br>Vostro 3520-I7 16GB 1GB
+                            <br>MX550</span>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div>
+                                <img src="Pic/medal-star.png" alt="">
+                                <span style="font-size: 12px; color: #F4B740;">4.4</span>
+                            </div>
+                            <span style="font-size: 12px; color: #ADADAD;">( ۴۳ نظر)</span>
+                        </div>
+                    </div>
+                    <div class="d-flex p-2 w-75 gap-1 rounded-3" style="background-color: #5E0A8E; color: white;">
+                        <span>تومان</span>
+                        <strong>41،900،000</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------ section11 ------------------------ -->
+    <div class="d-flex ps-3 pt-4 pb-4 pe-3 w-100 section11 align-items-center">
+        <div class="justify-content-between align-items-center d-flex flex-column flex-md-row w-100 gap-2 gap-md-0">
+            <div class="d-flex flex-column gap-1 col-md-8">
+                <span style="color: white;" class="col-md-12">برای دریافت آخرین اخبار و تخفیف های جدید،ایمیل خود را وارد
+                    نمایید</span>
+                <div class="d-flex gap-2 col-md-12">
+                    <input class="input-email col-md-7" type="text" placeholder="ایمیل شما">
+                    <button class="button-sabt col-md-1">
+                        ثبت
+                    </button>
+                </div>
+            </div>
+            <div class="d-flex flex-column gap-1 align-items-center justify-content-center">
+                <span style="color: white;" class="">شبکه های اجتماعی</span>
+                <div class="">
+                    <img src="Pic/insta.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------ footer ------------------------ -->
+    <div class="d-flex p-3 w-100 flex-column mt-1">
+        <div class="footer align-items-center justify-content-between d-flex flex-column-reverse flex-md-row w-100">
+            <div class="d-none d-md-flex gap-5 col-md-7">
+                <div class="flex-column d-flex gap-4 col-md-3">
+                    <strong>خدمات</strong>
+                    <a href="product.html" style="color: #5E0A8E !important;">قیمت لپتاپ</a>
+                    <span>خرید لپتاپ دست دوم</span>
+                    <span>گارانتی</span>
+                    <span>خرید اقساطی</span>
+                </div>
+                <div class="flex-column d-flex gap-4 col-md-3">
+                    <strong>خرید لپتاپ</strong>
+                    <span>انتخاب هوشمند لپتاپ</span>
+                    <span>قیمت لپتاپ لنوو</span>
+                    <span>قیمت لپتاپ ایسوس</span>
+                    <span>قیمت لپتاپ اچ پی</span>
+                </div>
+                <div class="flex-column d-flex gap-4 col-md-3">
+                    <strong>فروشگاه اینترنتی</strong>
+                    <a href="about.html" style="color: #5E0A8E !important;">درباره ما</a>
+                    <a href="contact.html" style="color: #5E0A8E !important;">تماس با ما</a>
+                    <span>شرایط و قوانین</span>
+                    <span>نظرات کاربران</span>
+                </div>
+                <div class="flex-column d-flex gap-4 col-md-3">
+                    <strong>پشتیبانی</strong>
+                    <span>شنبه تا پنجشنبه 8:30 الی 18:30</span>
+                    <div class="d-flex gap-1 align-items-center">
+                        <img src="Pic/mail-icon.png" alt="">
+                        <span>Technoshop@gmail.com</span>
+                    </div>
+                    <div class="d-flex gap-1 align-items-center">
+                        <img src="Pic/call-icon.png" alt="">
+                        <span>تلفن امور مشتریان <br> 0210000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column gap-4 col-md-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="Pic/Group 61493(1).png" alt="">
+                </div>
+                <div class="d-flex flex-column gap-3">
+                    <strong>آدرس فروشگاه</strong>
+                    <span>تهران،خیابان ولیعصر،بالاتر از زرتشت،کوچه جاوید،پلاک24</span>
+                    <span>کدپستی: 1594843812</span>
+                </div>
+            </div>
+        </div>
+        <!-- mobile -->
+        <div class="d-flex d-md-none flex-column gap-5 align-items-center justify-content-around footer">
+            <div class="w-100 d-flex align-items-center justify-content-center">
+                <div class="flex-column d-flex gap-4 col-6">
+                    <strong>خدمات</strong>
+                    <span>قیمت لپتاپ</span>
+                    <span>خرید لپتاپ دست دوم</span>
+                    <span>گارانتی</span>
+                    <span>خرید اقساطی</span>
+                </div>
+                <div class="flex-column d-flex gap-4 col-6">
+                    <strong>خرید لپتاپ</strong>
+                    <span>انتخاب هوشمند لپتاپ</span>
+                    <span>قیمت لپتاپ لنوو</span>
+                    <span>قیمت لپتاپ ایسوس</span>
+                    <span>قیمت لپتاپ اچ پی</span>
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-around align-items-center">
+                <div class="flex-column d-flex gap-4 col-6">
+                    <strong>فروشگاه اینترنتی</strong>
+                    <span>درباره ما</span>
+                    <span>تماس با ما</span>
+                    <span>شرایط و قوانین</span>
+                    <span>نظرات کاربران</span>
+                </div>
+                <div class="flex-column d-flex gap-4 col-6">
+                    <strong>پشتیبانی</strong>
+                    <span>شنبه تا پنجشنبه 8:30 الی 18:30</span>
+                    <div class="d-flex gap-1 align-items-center">
+                        <img src="Pic/mail-icon.png" alt="">
+                        <span>Technoshop@gmail.com</span>
+                    </div>
+                    <div class="d-flex gap-1 align-items-center">
+                        <img src="Pic/call-icon.png" alt="">
+                        <span>تلفن امور مشتریان <br> 0210000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------- -->
+        <div class="d-flex img-footer col-md-3 justify-content-center">
+            <img src="Pic/foot-pic-1.png" alt="">
+            <img src="Pic/foot-pic-2.png" alt="">
+            <img src="Pic/foot-pic-3.png" alt="">
+        </div>
+    </div>
+    <div class="d-flex justify-content-center p-3 align-items-center m-3 m-md-0 last-item footer-sec"
+        style="background-color: #5E0A8E; color: white; direction: rtl;">
+        تمامی حقوق مادی و معنوی این سایت متعلق به تکنوشاپ می‌باشد.
+    </div>
+    <!-- ------------------------ mobile footer ------------------------ -->
+    <div class="d-flex d-sm-none justify-content-around align-items-center footer-mobile sec-footer-m w-100">
+        <a href="index.html" class="p-2">
+            <div
+                class="d-flex flex-column justify-content-center icons-mobile-footer align-content-center align-items-center">
+                <img src="Pic/home-mobile.png" alt="">
+                <span style="color: #7933A1;">خانه</span>
+            </div>
+        </a>
+        <button class="p-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            style="background-color: white !important;">
+            <div
+                class="d-flex flex-column justify-content-center icons-mobile-footer align-content-center align-items-center">
+                <img src="Pic/category-mobile.png" alt="">
+                <span style="color: #858181;">دسته بندی</span>
+            </div>
+        </button>
+        <a href="shopping.html" class="p-2">
+            <div
+                class="d-flex flex-column justify-content-center icons-mobile-footer align-content-center align-items-center">
+                <img src="Pic/shopping-cart-mobile.png" alt="">
+                <span style="color: #858181;">سبد خرید</span>
+            </div>
+        </a>
+        <a href="account.html" class="p-2">
+            <div
+                class="d-flex flex-column justify-content-center icons-mobile-footer align-content-center align-items-center">
+                <img src="Pic/vorood-mobile.png" alt="">
+                <span style="color: #858181;">ورود</span>
+            </div>
+        </a>
+    </div>
+    <div class="offcanvas offcanvas-start" id="offcanvasRight" style="direction: rtl;">
+        <div class="offcanvas-header align-items-center d-flex border-bottom">
+            <img src="Pic/Group 61493(1).png" alt="">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <strong>دسته بندی ها</strong>
+            <div class="d-flex flex-column gap-4 mt-3">
+                <a href="#" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/mobile-icon.png" alt="">
+                    <span>موبایل</span>
+                </a>
+                <a href="product.html" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/monitor-icon.png" alt="">
+                    <span>لپتاپ و کامپیوتر</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/tablet-icon.png" alt="">
+                    <span>تبلت</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/watch-icon.png" alt="">
+                    <span>ساعت هوشمند</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/camera-icon.png" alt="">
+                    <span>دوربین</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/game-icon.png" alt="">
+                    <span>محصولات گیمینگ</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-1 border-bottom pb-2">
+                    <img src="Pic/data-icon.png" alt="">
+                    <span>اینترنت</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-1">
+                    <img src="Pic/devices-icon.png" alt="">
+                    <span>تجهیزات جانبی</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

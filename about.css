@@ -1,0 +1,15 @@
+.tx-about{
+    font-size: 140%;
+}
+.tx-about-titr{
+    font-size: 140%;
+    color: #5E0A8E;
+}
+@media only screen and (max-width: 800px) {
+    .tx-about{
+      font-size: 60%;
+    }
+    .tx-about-titr{
+        font-size: 100%;
+    }
+  }

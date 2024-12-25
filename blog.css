@@ -1,0 +1,58 @@
+body {
+  /* max-width: 1400px; */
+}
+.banners-section {
+  margin-top: 11%;
+  direction: rtl;
+}
+@media only screen and (max-width: 600px) {
+  .banner3 {
+    height: auto !important;
+  }
+  .banner4 {
+    height: auto !important;
+  }
+  .banners-section {
+    margin-top: 3%;
+  }
+}
+.new-maqale {
+  direction: rtl;
+}
+.tx1-new-maqale {
+  font-size: 150%;
+  color: #5e0a8e;
+}
+.border-new-maqale {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+}
+.footer-maqale {
+  font-size: 80%;
+}
+.sec-pic-new-maqale img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.card-new-maqale {
+  border: solid 1px #606060;
+  border-radius: 10px;
+}
+.section-new-maqale {
+  border: solid 1px #606060;
+  border-radius: 10px;
+}
+.sabk-digital {
+  direction: rtl;
+}
+.tx1-sabk {
+  font-size: 130%;
+}
+.tx2-sabk {
+  color: #606060;
+}
+.titrs {
+  border-bottom: solid 1px black;
+}
+
