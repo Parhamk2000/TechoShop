@@ -1,1 +1,1 @@
-# TechoShop
+# TechnoShop
